@@ -1,0 +1,9 @@
+name: keat
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - pytorch-cuda=11.8
+  - pytorch==2.0.0
+  - mkl[version='<2024.1']
+prefix: /<>/miniconda3/envs/keat

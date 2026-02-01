@@ -17,7 +17,6 @@
 - Preprint
 - Blog post
 - [Code](https://github.com/waghmaregovind/KEAT-TemporalGNN) 
-- Additional results
 
 ---
 
