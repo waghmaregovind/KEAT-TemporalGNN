@@ -3,8 +3,9 @@ Repository for AAAI-2026 paper **Kernelized Edge Attention: Addressing Semantic 
 
 [![arXiv](https://img.shields.io/badge/arXiv-2602.00596-orange.svg)](https://arxiv.org/abs/2602.00596)
 
+---
+
 ### Coming soon
-- Blog post
 - Code: KEAT-DygFormer 
 
 ## Create and activate the Environment

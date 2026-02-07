@@ -3,6 +3,11 @@
 **"Kernelized Edge Attention: Addressing Semantic Attention Blurring in Temporal Graph Neural Networks"**
 
 **AAAI 2026**
+
+---
+
+* [![arXiv](https://img.shields.io/badge/arXiv-2602.00596-orange.svg)](https://arxiv.org/abs/2602.00596)
+* [Code](https://github.com/waghmaregovind/KEAT-TemporalGNN) 
 ---
 
 ### Authors
@@ -11,12 +16,6 @@
 ¹ *Mastercard AI Garage*  
 ² *Indian Institute of Technology, Delhi*  
 *\*Equal contribution*
-
----
-### Coming soon...
-- Preprint
-- Blog post
-- [Code](https://github.com/waghmaregovind/KEAT-TemporalGNN) 
 
 ---
 

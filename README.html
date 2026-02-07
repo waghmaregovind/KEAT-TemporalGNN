@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index</title>
+<title>readme</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,16 +23,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/quarto.js"></script>
-<script src="index_files/libs/quarto-html/popper.min.js"></script>
-<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="index_files/libs/quarto-html/anchor.min.js"></script>
-<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="README_files/libs/clipboard/clipboard.min.js"></script>
+<script src="README_files/libs/quarto-html/quarto.js"></script>
+<script src="README_files/libs/quarto-html/popper.min.js"></script>
+<script src="README_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="README_files/libs/quarto-html/anchor.min.js"></script>
+<link href="README_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="README_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="README_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="README_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="README_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -46,41 +46,47 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="kernelized-edge-attention-keat" class="level1">
-<h1>Kernelized Edge Attention (KEAT)</h1>
-<p><strong>“Kernelized Edge Attention: Addressing Semantic Attention Blurring in Temporal Graph Neural Networks”</strong></p>
-<p><strong>AAAI 2026</strong></p>
+<section id="keat-temporalgnn" class="level1">
+<h1>KEAT-TemporalGNN</h1>
+<p>Repository for AAAI-2026 paper <strong>Kernelized Edge Attention: Addressing Semantic Attention Blurring in Temporal Graph Neural Networks</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://arxiv.org/abs/2602.00596"><img src="https://img.shields.io/badge/arXiv-2602.00596-orange.svg" class="img-fluid figure-img" alt="arXiv"></a></p>
+<figcaption>arXiv</figcaption>
+</figure>
+</div>
 <hr>
+<section id="coming-soon" class="level3">
+<h3 class="anchored" data-anchor-id="coming-soon">Coming soon</h3>
 <ul>
-<li><a href="https://arxiv.org/abs/2602.00596"><img src="https://img.shields.io/badge/arXiv-2602.00596-orange.svg" class="img-fluid" alt="arXiv"></a></li>
-<li><a href="https://github.com/waghmaregovind/KEAT-TemporalGNN">Code</a></li>
+<li>Code: KEAT-DygFormer</li>
 </ul>
-<hr>
-<section id="authors" class="level3">
-<h3 class="anchored" data-anchor-id="authors">Authors</h3>
-<p><strong>Govind Waghmare¹</strong>, <strong>Srini Rohan Gujulla Leel¹</strong>, <strong>Nikhil Tumbde¹*</strong>, <strong>Sumedh B G¹*</strong>, <strong>Sonia Gupta¹</strong>, <strong>Srikanta Bedathur²</strong><br>
-¹ <em>Mastercard AI Garage</em><br>
-² <em>Indian Institute of Technology, Delhi</em><br>
-<em>*Equal contribution</em></p>
-<hr>
 </section>
-<section id="abstract" class="level3">
-<h3 class="anchored" data-anchor-id="abstract">Abstract</h3>
-<p>Temporal Graph Neural Networks (TGNNs) aim to capture the evolving structure and timing of interactions in dynamic graphs. Although many models incorporate time through encodings or architectural design, they often compute attention over entangled node and edge representations, failing to reflect their distinct temporal behaviors. Node embeddings evolve slowly as they aggregate long-term structural context, while edge features reflect transient, timestamped interactions (e.g.&nbsp;messages, trades, or transactions). This mismatch results in semantic attention blurring, where attention weights cannot distinguish between slowly drifting node states and rapidly changing, information-rich edge interactions. As a result, models struggle to capture fine-grained temporal dependencies and provide limited transparency into how temporal relevance is computed. This paper introduces KEAT (Kernelized Edge Attention for Temporal Graphs), a novel attention formulation that modulates edge features using a family of continuous-time kernels, including Laplacian, RBF, and learnable MLP variant. KEAT preserves the distinct roles of nodes and edges, and integrates seamlessly with both Transformer-style (e.g., DyGFormer) and message-passing (e.g., TGN) architectures. It achieves up to 18% MRR improvement over the recent DyGFormer and 7% over TGN on link prediction tasks, enabling more accurate, interpretable and temporally aware message passing in TGNNs.</p>
-<hr>
+<section id="create-and-activate-the-environment" class="level2">
+<h2 class="anchored" data-anchor-id="create-and-activate-the-environment">Create and activate the Environment</h2>
+<p>Refer to <code>environment.yml</code> for package details.</p>
 </section>
-<section id="problem-statement" class="level3">
-<h3 class="anchored" data-anchor-id="problem-statement">Problem Statement</h3>
-<p align="center">
-<img src="problem.png" alt="problem" width="500">
-</p>
-<hr>
+<section id="step-2-tgn-keat" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-tgn-keat">Step 2: TGN-KEAT</h2>
+<section id="model-training" class="level3">
+<h3 class="anchored" data-anchor-id="model-training">Model Training</h3>
+<p><code>KEAT_TGN/train.py</code></p>
 </section>
-<section id="results" class="level3">
-<h3 class="anchored" data-anchor-id="results">Results</h3>
-<p><strong>Attention Visualization</strong> <img src="heatmap_attn.png" class="img-fluid" alt="Attention heatmap"> <img src="grid_attn.png" class="img-fluid" alt="Attention neighbor grid"></p>
-<p><strong>Link Prediction Results</strong> <img src="link.png" class="img-fluid" alt="Link prediction"></p>
-<hr>
+<section id="model-testing" class="level3">
+<h3 class="anchored" data-anchor-id="model-testing">Model Testing</h3>
+<p><code>KEAT_TGN/test.py</code></p>
+<p>Results on tgbl-wiki are in:</p>
+<p><code>KEAT_TGN/keat_tgn.ipynb</code></p>
+</section>
+</section>
+<section id="code-credits" class="level2">
+<h2 class="anchored" data-anchor-id="code-credits">Code Credits</h2>
+<p>KEAT codebase is built on top of following repos:</p>
+<ul>
+<li><a href="https://github.com/shenyangHuang/TGB/tree/main">TGB</a></li>
+<li><a href="https://github.com/yule-BUAA/DyGLib">DyGFormer</a></li>
+<li><a href="https://github.com/chenxi1228/LeTE">LeTE</a></li>
+</ul>
 </section>
 </section>
 
