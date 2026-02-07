@@ -1,9 +1,9 @@
 # KEAT-TemporalGNN
 Repository for AAAI-2026 paper **Kernelized Edge Attention: Addressing Semantic Attention Blurring in Temporal Graph Neural Networks**
 
+[![arXiv](https://img.shields.io/badge/arXiv-2602.00596-orange.svg)](https://arxiv.org/abs/2602.00596)
 
 ### Coming soon
-- Preprint 
 - Blog post
 - Code: KEAT-DygFormer 
 
