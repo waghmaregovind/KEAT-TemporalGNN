@@ -5,9 +5,6 @@ Repository for AAAI-2026 paper **Kernelized Edge Attention: Addressing Semantic 
 
 ---
 
-### Coming soon
-- Code: KEAT-DygFormer 
-
 ## Create and activate the Environment
 
 Refer to ```environment.yml``` for package details.
