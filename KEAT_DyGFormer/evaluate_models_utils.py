@@ -50,8 +50,8 @@ def evaluate_model_link_prediction(model_name: str, model: nn.Module, neighbor_s
         evaluate_metrics = []
         evaluate_idx_data_loader_tqdm = tqdm(evaluate_idx_data_loader, ncols=120)
         for batch_idx, evaluate_data_indices in enumerate(evaluate_idx_data_loader_tqdm):
-            if(eval_stage == 'val' and batch_idx>6700): # batch_idx is used for early val termination, dataset specific
-                 continue
+            # if(eval_stage == 'val' and batch_idx>360): # batch_idx is used for early val termination, dataset specific
+                #  continue
             evaluate_data_indices = evaluate_data_indices.numpy()
             batch_src_node_ids, batch_dst_node_ids, batch_node_interact_times, batch_edge_ids = \
                 evaluate_data.src_node_ids[evaluate_data_indices],  evaluate_data.dst_node_ids[evaluate_data_indices], \

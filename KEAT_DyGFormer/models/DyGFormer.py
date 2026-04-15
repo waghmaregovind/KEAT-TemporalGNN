@@ -12,7 +12,7 @@ class DyGFormer(nn.Module):
 
     def __init__(self, node_raw_features: np.ndarray, edge_raw_features: np.ndarray, neighbor_sampler: NeighborSampler,
                  time_feat_dim: int, channel_embedding_dim: int, output_dim: int = 172, patch_size: int = 1, num_layers: int = 2, num_heads: int = 2,
-                 dropout: float = 0.1, max_input_sequence_length: int = 512, device: str = 'cpu'):
+                 dropout: float = 0.1, max_input_sequence_length: int = 512, device: str = 'cpu', dataset_name: str = "tgbl-wiki"):
         """
         DyGFormer model.
         :param node_raw_features: ndarray, shape (num_nodes + 1, node_feat_dim)
@@ -27,6 +27,7 @@ class DyGFormer(nn.Module):
         :param dropout: float, dropout rate
         :param max_input_sequence_length: int, maximal length of the input sequence for each node
         :param device: str, device
+        :param datset_name: str, dataset name
         """
 
         # For static version un comment - 63,70,161,167,177,182
@@ -48,6 +49,7 @@ class DyGFormer(nn.Module):
         self.dropout = dropout
         self.max_input_sequence_length = max_input_sequence_length
         self.device = device
+        self.dataset_name = dataset_name
 
         self.time_encoder = TimeEncoder(time_dim=time_feat_dim)
 
@@ -251,20 +253,24 @@ class DyGFormer(nn.Module):
         src_num_times_average_x = torch.from_numpy(node_interact_times[...,np.newaxis,np.newaxis] - src_num_times_average).to(self.device)
         
         # tgbl-wiki
-        src_num_times_average = torch.exp(src_num_times_average_x/80111.)
-        src_num_times_average_ = torch.exp(-src_num_times_average_x/80111.)
-        
+        if self.dataset_name == "tgbl-wiki":
+            src_num_times_average = torch.exp(src_num_times_average_x/80111.)
+            src_num_times_average_ = torch.exp(-src_num_times_average_x/80111.)
+
         # tgbl-review
-        # src_num_times_average = torch.exp(src_num_times_average_x/192240040.)
-        # src_num_times_average_ = torch.exp(-src_num_times_average_x/192240040.)
+        elif self.dataset_name == "tgbl-review":
+            src_num_times_average = torch.exp(src_num_times_average_x/192240040.)
+            src_num_times_average_ = torch.exp(-src_num_times_average_x/192240040.)
 
         # tgbl-coin
-        # src_num_times_average = torch.exp(src_num_times_average_x/75610700.)
-        # src_num_times_average_ = torch.exp(-src_num_times_average_x/75610700.)
+        elif self.dataset_name == "tgbl-coin":
+            src_num_times_average = torch.exp(src_num_times_average_x/75610700.)
+            src_num_times_average_ = torch.exp(-src_num_times_average_x/75610700.)
 
         # tgbl-comment
-        # src_num_times_average = torch.exp(src_num_times_average_x/105518400.)
-        # src_num_times_average_ = torch.exp(-src_num_times_average_x/105518400.)
+        elif self.dataset_name == "tgbl-comment":
+            src_num_times_average = torch.exp(src_num_times_average_x/105518400.)
+            src_num_times_average_ = torch.exp(-src_num_times_average_x/105518400.)
 
         src_padded_nodes_neighbor_times[src_padded_nodes_neighbor_times==-1.0] = 0.0
         # dst_padded_nodes_neighbor_ids, ndarray, shape (batch_size, dst_max_seq_length)
@@ -287,20 +293,24 @@ class DyGFormer(nn.Module):
         dst_num_times_average_x = torch.from_numpy(node_interact_times[...,np.newaxis,np.newaxis] - dst_num_times_average).to(self.device)
         
         # tgbl-wiki
-        dst_num_times_average = torch.exp(dst_num_times_average_x/80111.)
-        dst_num_times_average_ = torch.exp(-dst_num_times_average_x/80111.)
+        if self.dataset_name == "tgbl-wiki":
+            dst_num_times_average = torch.exp(dst_num_times_average_x/80111.)
+            dst_num_times_average_ = torch.exp(-dst_num_times_average_x/80111.)
 
+        elif self.dataset_name == "tgbl-review":
         # tgbl-review
-        # dst_num_times_average = torch.exp(dst_num_times_average_x/192240040.)
-        # dst_num_times_average_ = torch.exp(-dst_num_times_average_x/192240040.)
+            dst_num_times_average = torch.exp(dst_num_times_average_x/192240040.)
+            dst_num_times_average_ = torch.exp(-dst_num_times_average_x/192240040.)
         
         # tgbl-coin
-        # dst_num_times_average = torch.exp(dst_num_times_average_x/75610700.)
-        # dst_num_times_average_ = torch.exp(-dst_num_times_average_x/75610700.)
+        elif self.dataset_name == "tgbl-coin":
+            dst_num_times_average = torch.exp(dst_num_times_average_x/75610700.)
+            dst_num_times_average_ = torch.exp(-dst_num_times_average_x/75610700.)
         
         # tgbl-comment
-        # dst_num_times_average = torch.exp(dst_num_times_average_x/105518400.)
-        # dst_num_times_average_ = torch.exp(-dst_num_times_average_x/105518400.)
+        elif self.dataset_name == "tgbl-comment":
+            dst_num_times_average = torch.exp(dst_num_times_average_x/105518400.)
+            dst_num_times_average_ = torch.exp(-dst_num_times_average_x/105518400.)
         
         dst_padded_nodes_neighbor_times[dst_padded_nodes_neighbor_times==-1.0] = 0.0
 

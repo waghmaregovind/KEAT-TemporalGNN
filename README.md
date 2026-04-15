@@ -10,7 +10,7 @@ Repository for AAAI-2026 paper **Kernelized Edge Attention: Addressing Semantic 
 Refer to ```environment.yml``` for package details.
 
 
-## Step 2: TGN-KEAT
+## TGN-KEAT
 
 ### Model Training
 
@@ -22,6 +22,10 @@ Refer to ```environment.yml``` for package details.
 Results on tgbl-wiki are in:
 
 ```KEAT_TGN/keat_tgn.ipynb```
+
+## TGN-DyGFormer
+
+We follow original DyGFormer steps for training and evaluation : [KEAT_DyGFormer/README.md](./KEAT_DyGFormer/README.md)
 
 ## Code Credits
 
